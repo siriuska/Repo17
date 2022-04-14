@@ -37,7 +37,7 @@ function getUsers() {
     return output;
 
 }
-function findUsersById(id) {
+function findUserById(id) {
     try {
         var user = users.find(x => x.id === id);
         var iFindUser = ` ${user.id}- ${user.firstName} ${user.lastName} is ${user.age}, ${user.gender}`;
@@ -53,6 +53,6 @@ function findUsersById(id) {
 }
 
 console.log(getUsers());
-findUsersById(1);
+findUserById(1);
 
-module.exports = findUsersById;
+module.exports = findUserById;
