@@ -28,25 +28,27 @@ var users = [
 function getUsers() {
     var output = "";
     for (let i = 0; i < users.length; i++) {
-        output += `${users[i].firstName} ${users[i].lastName} is ${users[i].age}, ${users[i].gender}\n`;
+        output += `${users[i].firstName} ${users[i].lastName} is ${users[i].age}, ${users[i].gender} \n`;
     }
-    console.log(output);
     return output;
 
 }
-
 function findUser(lastName, gender) {
     try {
-        var user = _.find(users, { lastName: lastName, gender: gender });
+        var user = users.find(x => x.lastName === lastName && x.gender === gender);
+        var iFindUser = `${user.firstName} ${user.lastName} is ${user.age}, ${user.gender}`;
 
-        let iFindUser = `${user.firstName} ${user.lastName} is ${user.age}, ${user.gender} `;
         console.log(iFindUser);
         return iFindUser;
+
+
     } catch (error) {
         console.log("Cannot read property 'firstName' of undefined");
-        return "Cannot read property 'firstName' of undefined";
     }
+
 }
 
 console.log(getUsers());
-console.log(findUser());
+findUser("Carrey", "male");
+
+module.exports = findUser;
